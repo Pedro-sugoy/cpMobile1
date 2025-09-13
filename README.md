@@ -55,6 +55,11 @@ npx expo start
 
 ---
 
+## Link para baixar o APK
+```bash
+https://expo.dev/accounts/guitatu2/projects/cpMobile/builds/27ff50ef-e904-471f-bef3-65dc3aab1b9e
+```
+
 ## 🎨 Funcionalidades
 
 * **Tema claro/escuro:**
