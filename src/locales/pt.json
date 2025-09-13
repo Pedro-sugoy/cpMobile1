@@ -1,0 +1,16 @@
+{
+  "loginTitle": "Entrar ou Cadastrar",
+  "loginEmail": "Entrar com Email",
+  "registerEmail": "Cadastrar com Email",
+  "password": "Senha",
+  "welcome": "Bem-vindo",
+  "changeTheme": "Mudar tema",
+  "changeLanguage": "Mudar idioma",
+  "goTasks": "Ir para tarefas",
+  "taskList": "Suas Tarefas",
+  "addTask": "Adicionar tarefa",
+  "taskPlaceholder": "Digite uma nova tarefa",
+  "save": "Salvar",
+  "delete": "Excluir",
+  "logout": "Sair"
+}

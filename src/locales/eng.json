@@ -1,0 +1,16 @@
+{
+  "loginTitle": "Login or Register",
+  "loginEmail": "Login with Email",
+  "registerEmail": "Register with Email",
+  "password": "Password",
+  "welcome": "Welcome",
+  "changeTheme": "Change theme",
+  "changeLanguage": "Change language",
+  "goTasks": "Go to tasks",
+  "taskList": "Your Tasks",
+  "addTask": "Add task",
+  "taskPlaceholder": "Enter a new task",
+  "save": "Save",
+  "delete": "Delete",
+  "logout": "Logout"
+}
