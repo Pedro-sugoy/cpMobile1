@@ -1,65 +1,69 @@
-import React, { useContext } from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import React, { useState } from 'react';
+import { Button, View } from 'react-native';
+import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-import { AuthProvider, AuthContext } from "./src/context/AuthContext";
-import { ThemeProvider, ThemeContext } from "./src/context/ThemeContext";
+import { ThemeProvider, useTheme } from './src/context/ThemeContext';
+import TelaTarefas from './app/TelaTarefas';
+import TelaConfiguracoes from './app/TelaConfiguracoes';
 
-import LoginScreen from "./src/screens/LoginScreen";
-import HomeScreen from "./src/screens/HomeScreen";
-import TaskListScreen from "./src/screens/TaskListScreen";
-import AddTaskScreen from "./src/screens/AddTaskScreen";
-
-// inicializa i18n
-import "./src/services/i18n";
+import ptBR from './src/locales/pt.json';
+import en from './src/locales/eng.json';
 
 const Stack = createNativeStackNavigator();
+const queryClient = new QueryClient();
 
-// 📌 Stack principal
-function AppStack() {
-  const { user } = useContext(AuthContext);
-  const { theme } = useContext(ThemeContext);
+const AppNavigator = () => {
+  const [language, setLanguage] = useState('pt');
+  const i18n = language === 'pt' ? ptBR : en;
+  const { theme, toggleTheme } = useTheme();
+
+  const toggleLanguage = () => {
+    setLanguage(prev => (prev === 'pt' ? 'en' : 'pt'));
+  };
+
+  const headerButtons = () => (
+    <View style={{ flexDirection: 'row', gap: 8 }}>
+      <Button title={language === 'pt' ? 'EN' : 'PT'} onPress={toggleLanguage} />
+      <Button title={theme.mode === 'light' ? '🌙' : '☀️'} onPress={toggleTheme} />
+    </View>
+  );
 
   return (
-    <NavigationContainer theme={theme}>
-      <Stack.Navigator screenOptions={{ headerShown: true }}>
-        {user ? (
-          <>
-            <Stack.Screen
-              name="Home"
-              component={HomeScreen}
-              options={{ title: "Home" }}
+    <NavigationContainer theme={theme.mode === 'light' ? DefaultTheme : DarkTheme}>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Tarefas"
+          options={{ title: i18n.tarefas, headerRight: headerButtons }}
+        >
+          {props => <TelaTarefas {...props} language={language} i18n={i18n} />}
+        </Stack.Screen>
+
+        <Stack.Screen
+          name="Configuracoes"
+          options={{ title: i18n.configuracoes, headerRight: headerButtons }}
+        >
+          {props => (
+            <TelaConfiguracoes
+              {...props}
+              language={language}
+              setLanguage={setLanguage}
+              i18n={i18n}
             />
-            <Stack.Screen
-              name="Tasks"
-              component={TaskListScreen}
-              options={{ title: "Minhas Tarefas" }}
-            />
-            <Stack.Screen
-              name="AddTask"
-              component={AddTaskScreen}
-              options={{ title: "Adicionar Tarefa" }}
-            />
-          </>
-        ) : (
-          <Stack.Screen
-            name="Login"
-            component={LoginScreen}
-            options={{ headerShown: false }}
-          />
-        )}
+          )}
+        </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
+};
 
-// 📌 App principal com Providers
 export default function App() {
   return (
-    <AuthProvider>
-      <ThemeProvider>
-        <AppStack />
-      </ThemeProvider>
-    </AuthProvider>
+    <ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <AppNavigator />
+      </QueryClientProvider>
+    </ThemeProvider>
   );
 }

@@ -1,16 +1,13 @@
 {
-  "loginTitle": "Login or Register",
-  "loginEmail": "Login with Email",
-  "registerEmail": "Register with Email",
-  "password": "Password",
-  "welcome": "Welcome",
-  "changeTheme": "Change theme",
-  "changeLanguage": "Change language",
-  "goTasks": "Go to tasks",
-  "taskList": "Your Tasks",
-  "addTask": "Add task",
-  "taskPlaceholder": "Enter a new task",
-  "save": "Save",
-  "delete": "Delete",
-  "logout": "Logout"
+  "tarefas": "Tasks",
+  "adicionar": "Add",
+  "configuracoes": "Settings",
+  "idioma": "Language",
+  "notificacoes": "Notifications",
+  "agendar_notificacao": "Schedule Notification",
+  "mensagem_motivacional": "Motivational Message",
+  "concluido": "Completed",
+  "remover": "Remove",
+  "pt": "Portuguese",
+  "en": "English"
 }

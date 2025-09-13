@@ -1,10 +1,8 @@
 import React, { createContext, useState, useContext } from 'react';
 import { Appearance } from 'react-native';
 
-// Criação do contexto
 const ThemeContext = createContext();
 
-// Definindo os temas
 const lightTheme = {
   mode: 'light',
   backgroundColor: '#FFFFFF',
@@ -17,16 +15,12 @@ const darkTheme = {
   textColor: '#FFFFFF',
 };
 
-// Provedor do tema
 export const ThemeProvider = ({ children }) => {
-  const colorScheme = Appearance.getColorScheme(); // Detecta o tema do sistema
+  const colorScheme = Appearance.getColorScheme();
   const [theme, setTheme] = useState(colorScheme === 'dark' ? darkTheme : lightTheme);
 
-  // Alternador de tema manual (opcional)
   const toggleTheme = () => {
-    setTheme((prevTheme) =>
-      prevTheme.mode === 'light' ? darkTheme : lightTheme
-    );
+    setTheme(prevTheme => (prevTheme.mode === 'light' ? darkTheme : lightTheme));
   };
 
   return (
@@ -36,5 +30,4 @@ export const ThemeProvider = ({ children }) => {
   );
 };
 
-// Hook customizado para usar o tema
 export const useTheme = () => useContext(ThemeContext);
