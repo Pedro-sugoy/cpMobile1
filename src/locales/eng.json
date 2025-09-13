@@ -1,13 +1,24 @@
 {
   "tarefas": "Tasks",
   "adicionar": "Add",
+  "remover": "Remove",
   "configuracoes": "Settings",
   "idioma": "Language",
+  "tema": "Theme",
+  "tema_claro": "Light",
+  "tema_escuro": "Dark",
   "notificacoes": "Notifications",
   "agendar_notificacao": "Schedule Notification",
   "mensagem_motivacional": "Motivational Message",
-  "concluido": "Completed",
-  "remover": "Remove",
-  "pt": "Portuguese",
-  "en": "English"
+  "titulo_tarefa": "Task Title",
+  "descricao_tarefa": "Description",
+  "status": "Status",
+  "status_concluida": "✔️ Completed",
+  "status_pendente": "❌ Pending",
+  "due": "Due Date",
+  "clima_carregando": "Loading weather...",
+  "clima_erro": "⚠️ Could not fetch current weather.",
+  "motivacao_calor": "🔥 Enjoy the heat to be productive!",
+  "motivacao_agradavel": "🌤️ Pleasant weather to focus on your tasks!",
+  "motivacao_frio": "❄️ A cold day, perfect to concentrate and study!"
 }

@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ThemeProvider, useTheme } from './src/context/ThemeContext';
 import TelaTarefas from './app/TelaTarefas';
 import TelaConfiguracoes from './app/TelaConfiguracoes';
+import TelaNotificacoes from './app/TelaNotificacoes';
 
 import ptBR from './src/locales/pt.json';
 import en from './src/locales/eng.json';
@@ -52,6 +53,13 @@ const AppNavigator = () => {
               i18n={i18n}
             />
           )}
+        </Stack.Screen>
+
+        <Stack.Screen
+          name="Notificacoes"
+          options={{ title: i18n.notificacoes, headerRight: headerButtons }}
+        >
+          {props => <TelaNotificacoes {...props} language={language} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
