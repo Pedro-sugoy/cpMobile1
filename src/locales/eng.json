@@ -12,13 +12,13 @@
   "mensagem_motivacional": "Motivational Message",
   "titulo_tarefa": "Task Title",
   "descricao_tarefa": "Description",
+  "due": "Due Date",
   "status": "Status",
   "status_concluida": "✔️ Completed",
   "status_pendente": "❌ Pending",
-  "due": "Due Date",
-  "clima_carregando": "Loading weather...",
-  "clima_erro": "⚠️ Could not fetch current weather.",
-  "motivacao_calor": "🔥 Enjoy the heat to be productive!",
+  "motivacao_calor": "🔥 Take advantage of the heat to be productive!",
   "motivacao_agradavel": "🌤️ Pleasant weather to focus on your tasks!",
-  "motivacao_frio": "❄️ A cold day, perfect to concentrate and study!"
+  "motivacao_frio": "❄️ A cold day, perfect to concentrate and advance your studies!",
+  "clima_carregando": "Loading weather...",
+  "clima_erro": "⚠️ Could not fetch the current weather."
 }
